@@ -28,13 +28,16 @@ PreCommit:
 
   Fasterer:
     enabled: true
+    command: ['bundle', 'exec', 'fasterer']
 
   YardCoverage:
     enabled: true
+    command: ['bundle', 'exec', 'yard', 'stats']
 
 PrePush:
   Rspec:
     enabled: true
+    command: ['bundle', 'exec', 'rspec']
 
 #PostCheckout:
 #  ALL: # Special hook name that customizes all hooks of this type
