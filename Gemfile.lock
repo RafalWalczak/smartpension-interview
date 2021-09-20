@@ -1,14 +1,26 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (6.1.4.1)
+      activesupport (= 6.1.4.1)
+    activesupport (6.1.4.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
     ast (2.4.2)
     childprocess (4.1.0)
     colorize (0.8.1)
+    concurrent-ruby (1.1.9)
     diff-lcs (1.4.4)
     fasterer (0.9.0)
       colorize (~> 0.7)
       ruby_parser (>= 3.14.1)
+    i18n (1.8.10)
+      concurrent-ruby (~> 1.0)
     iniparse (1.5.0)
+    minitest (5.14.4)
     overcommit (0.58.0)
       childprocess (>= 0.6.3, < 5)
       iniparse (~> 1.4)
@@ -50,13 +62,18 @@ GEM
     ruby_parser (3.17.0)
       sexp_processor (~> 4.15, >= 4.15.1)
     sexp_processor (4.15.3)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
     yard (0.9.26)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
+  activemodel
   fasterer (= 0.9)
   overcommit (>= 0.58)
   rspec (~> 3.10)

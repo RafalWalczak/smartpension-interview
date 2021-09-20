@@ -19,3 +19,6 @@ gem 'rubocop-rspec', '~> 2.4'
 
 # Don't make your Rubies go fast. Make them go fasterer
 gem 'fasterer', '0.9'
+
+# Active Model provides a known set of interfaces for usage in model classes
+gem 'activemodel'
