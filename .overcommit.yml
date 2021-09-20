@@ -20,19 +20,19 @@ PreCommit:
     enabled: true
     on_warn: fail # Treat all warnings as failures
     command: ['bundle', 'exec', 'rubocop']
+  Fasterer:
+    enabled: true
+    command: ['bundle', 'exec', 'fasterer']
 
   # TrailingWhitespace:
   #   enabled: true
   #   exclude:
   #     - '**/db/structure.sql' # Ignore trailing whitespace in generated files
 
-  Fasterer:
-    enabled: true
-    command: ['bundle', 'exec', 'fasterer']
 
-  YardCoverage:
-    enabled: true
-    command: ['bundle', 'exec', 'yard', 'stats']
+  # YardCoverage:
+  #   enabled: true
+  #   command: ['bundle', 'exec', 'yard', 'stats']
 
 PrePush:
   Rspec:
