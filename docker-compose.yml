@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  webserver-log-parser:
+    build: .
+    container_name: webserver_log_parser
+    image: codeev/webserver-log-parser
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+      - ~/.ssh:/root/.ssh:delegated
+      - ~/.gitconfig:/root/.gitconfig:delegated
+    stdin_open: true
+    tty: true
