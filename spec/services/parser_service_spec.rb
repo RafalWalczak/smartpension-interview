@@ -18,6 +18,27 @@ RSpec.describe ParserService do
     it { expect { call }.not_to raise_error }
 
     context 'when file is empty' do
+      let(:file_path) { 'spec/files/empty.log' }
+
+      it { expect { call }.to raise_error(Exceptions::EmptyFile) }
+    end
+
+    context 'when file contain only empty lines' do
+      let(:file_path) { 'spec/files/empty_entries.log' }
+
+      it { expect { call }.to raise_error(Exceptions::EmptyFile) }
+    end
+
+    context 'when file does not exists' do
+      let(:file_path) { 'spec/files/missing_file.log' }
+
+      it { expect { call }.to raise_error(Exceptions::FileNotFound) }
+    end
+
+    context 'when file is different content type' do
+      let(:file_path) { 'spec/files/image.jpeg' }
+
+      pending { expect { call }.to raise_error(Exceptions::FileTypeError) }
     end
   end
 end
