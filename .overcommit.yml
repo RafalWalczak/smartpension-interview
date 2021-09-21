@@ -34,10 +34,10 @@ PreCommit:
   #   enabled: true
   #   command: ['bundle', 'exec', 'yard', 'stats']
 
-PrePush:
-  Rspec:
-    enabled: true
-    command: ['bundle', 'exec', 'rspec']
+# PrePush:
+#   Rspec:
+#     enabled: true
+#     command: ['bundle', 'exec', 'rspec']
 
 #PostCheckout:
 #  ALL: # Special hook name that customizes all hooks of this type
