@@ -22,3 +22,6 @@ gem 'fasterer', '0.9'
 
 # Active Model provides a known set of interfaces for usage in model classes
 gem 'activemodel'
+
+# Simple one-liner tests for common Rails functionality
+gem 'shoulda-matchers'
