@@ -80,14 +80,14 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  activemodel
+  activemodel (~> 6.1)
   fasterer (= 0.9)
   overcommit (>= 0.58)
-  pry
+  pry (~> 0.14)
   rspec (~> 3.10)
   rubocop (~> 1)
   rubocop-rspec (~> 2.4)
-  shoulda-matchers
+  shoulda-matchers (~> 5.0)
   yard (>= 0.9)
 
 BUNDLED WITH
