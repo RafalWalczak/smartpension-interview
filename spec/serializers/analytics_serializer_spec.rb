@@ -2,6 +2,7 @@
 
 require 'spec_helper'
 require 'serializers/analytics_serializer'
+require 'serializers/log_entry_serializer'
 require 'services/analytics_service'
 require 'services/parser_service'
 require 'models/log_entry_model'
