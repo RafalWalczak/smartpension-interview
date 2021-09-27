@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'models/log_entry_model'
-require 'exceptions'
-
 #
 # Service is responsible for file parsing
 #

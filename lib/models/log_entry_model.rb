@@ -4,6 +4,7 @@ require 'active_model'
 
 class LogEntryModel
   include ActiveModel::Model
+  include ActiveModel::Serialization
 
   attr_accessor :path, :ip, :line_number
 

@@ -24,38 +24,36 @@ class AnalyticsService
   # @return [Array<Array[String, Integer]>]
   #
   def most_page_views
-    @most_page_views = valid_entries.group_by(&:path)
-
-    @most_page_views = @most_page_views.map { |k, v| [k, v.size] }
-
-    @most_page_views.sort { |a, b| [b[1], a[0]] <=> [a[1], b[0]] }
+    @most_page_views ||= group_by(valid_entries, &:path)
   end
 
   #
   # @return [Array<Array[Array<String>, Integer]>]
   #
-  def uniq_most_page_views # rubocop:disable Metrics/AbcSize
-    @most_page_views = valid_entries.group_by { |entry| [entry.path, entry.ip] }
-
-    @most_page_views = @most_page_views.map { |k, v| [k, v.size] }
-
-    @most_page_views.sort { |a, b| [b[1], a[0][0], a[0][1]] <=> [a[1], b[0][0], b[0][1]] }
+  def uniq_most_page_views
+    @uniq_most_page_views ||= group_by(uniq_valid_entries, &:path)
   end
 
   #
   # @return [Array<Array[String, Integer]>]
   #
   def most_client_views
-    @most_page_views = valid_entries.group_by(&:ip)
-
-    @most_page_views = @most_page_views.map { |k, v| [k, v.size] }
-
-    @most_page_views.sort { |a, b| [b[1], a[0]] <=> [a[1], b[0]] }
+    @most_client_views ||= group_by(valid_entries, &:ip)
   end
 
   private
 
+  def group_by(entries, &block)
+    entries.group_by(&block)
+           .map { |k, v| [k, v.size] }
+           .sort { |a, b| [b[1], a[0]] <=> [a[1], b[0]] }
+  end
+
   def valid_entries
     @valid_entries ||= @log_entries - errors
+  end
+
+  def uniq_valid_entries
+    @uniq_valid_entries ||= valid_entries.uniq { |entry| [entry.path, entry.ip] }
   end
 end

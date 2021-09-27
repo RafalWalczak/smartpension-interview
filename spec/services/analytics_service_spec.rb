@@ -55,11 +55,9 @@ RSpec.describe(AnalyticsService, type: :service) do
     subject(:most_page_views) { analytics_service.uniq_most_page_views }
 
     shared_examples 'sorted response' do
-      it { expect(most_page_views.size).to(eq(4)) }
-      it { expect(most_page_views[0]).to(include(['/index/1', '127.0.0.1'], 2)) }
-      it { expect(most_page_views[1]).to(include(['/index', '127.0.0.1'], 1)) }
-      it { expect(most_page_views[2]).to(include(['/index/1', '127.0.0.2'], 1)) }
-      it { expect(most_page_views[3]).to(include(['/index/1', '127.0.0.3'], 1)) }
+      it { expect(most_page_views.size).to(eq(2)) }
+      it { expect(most_page_views[0]).to(include('/index/1', 3)) }
+      it { expect(most_page_views[1]).to(include('/index', 1)) }
     end
 
     it_behaves_like 'sorted response'

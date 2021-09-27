@@ -14,7 +14,7 @@ RSpec.describe(ParserService) do
     it { is_expected.to(be_instance_of(Array)) }
     it { is_expected.to(include(a_kind_of(LogEntryModel))) }
 
-    it { expect(call.size).to(eq(3)) }
+    it { expect(call.size).to(eq(7)) }
 
     it {
       expect { call }
