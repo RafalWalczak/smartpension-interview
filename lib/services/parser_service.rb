@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# frozen_string_literal
-
 require 'models/log_entry_model'
 require 'exceptions'
 
@@ -13,20 +11,26 @@ require 'exceptions'
 class ParserService
   attr_reader :log_entries
 
+  #
+  # @param [String] path
+  #
   def initialize(path)
     @absolute_path = File.absolute_path(path)
   end
 
+  #
+  # @return [Array<LogEntryModel>]
+  #
   def call!
     @log_entries = []
 
-    raise Exceptions::FileNotFound unless File.exist?(@absolute_path)
+    raise(Exceptions::FileNotFound) unless File.exist?(@absolute_path)
 
-    raise Exceptions::EmptyFile if File.zero?(@absolute_path)
+    raise(Exceptions::EmptyFile) if File.zero?(@absolute_path)
 
     parse
 
-    raise Exceptions::EmptyFile if @log_entries.empty?
+    raise(Exceptions::EmptyFile) if @log_entries.empty?
 
     @log_entries
   end
@@ -42,12 +46,8 @@ class ParserService
   end
 
   def line_convert(line, line_number)
-    attributes = line.split(' ')
+    attributes = line.split
 
-    LogEntryModel.new(
-      path: attributes[0],
-      ip: attributes[1],
-      line_number: line_number
-    )
+    LogEntryModel.new(path: attributes[0], ip: attributes[1], line_number: line_number)
   end
 end

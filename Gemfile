@@ -21,7 +21,10 @@ gem 'rubocop-rspec', '~> 2.4'
 gem 'fasterer', '0.9'
 
 # Active Model provides a known set of interfaces for usage in model classes
-gem 'activemodel'
+gem 'activemodel', '~> 6.1'
 
 # Simple one-liner tests for common Rails functionality
-gem 'shoulda-matchers'
+gem 'shoulda-matchers', '~> 5.0'
+
+# A runtime developer console and IRB alternative with powerful introspection capabilities.
+gem 'pry', '~> 0.14'
