@@ -1,0 +1,31 @@
+require:
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  EnabledByDefault: true
+  TargetRubyVersion: '3.0.2'
+
+Lint/ConstantResolution:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - spec/**/*
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+# Only for test purposes
+RSpec/Pending:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
+
+Style/IpAddresses:
+  Enabled: false
